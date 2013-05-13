@@ -1,12 +1,26 @@
-spring-alchemy
-==============
+# spring-alchemy
 
-# Checking out and Building
+## Checking out 
 
-To check out the project and build from source, do the following:
+To check out the project:
 
-    git clone git://github.com/zmoog/spring-alchemy.git
-    cd spring-alchemy
+    # Read+Write Access
+    git clone git@github.com:zmoog/alchemy-spring.git 
+
+Or 
+
+    # Read-Only Access
+    git clone git://github.com/zmoog/alchemy-spring.git 
+
+
+## Building
+
+Build from source, do the following:
+
+	   cd spring-alchemy
+ 
+(on *nix)
+
     ./gradlew build
 
 (on Windows):
@@ -18,6 +32,10 @@ To check out the project and build from source, do the following:
 # Running on Jetty
 
 To run the webapp on the Jetty web container:
+
+(on *nix)
+
+	./gradlew jettyRun
 
 (on Windows):
 
