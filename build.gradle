@@ -1,18 +1,69 @@
-subprojects {
-    apply plugin: 'java'
-    apply plugin: 'eclipse-wtp'
+
+apply plugin: 'base'
+
+ext {
+    descripton = 'Alchemy'
+}
+
+allprojects {
+    group = 'org.zmoog.alchemy'
 
     repositories {
         mavenCentral()
+    }    
+}
+
+subprojects { subproject ->
+
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+
+    sourceCompatibility=1.6
+    targetCompatibility=1.6
+
+    ext {
+
+        junitVersion = '4.11'
+        log4jVersion = '1.2.12'
+
+        springVersion = '3.2.2.RELEASE'
+        //springSecurityVersion = '3.1.4.RELEASE'
     }
 
+    // dependencies that are common across all java projects
     dependencies {
-        testCompile 'junit:junit:4.+'
+        testCompile "junit:junit:$junitVersion"
+        testCompile "log4j:log4j:$log4jVersion"
+        testCompile "org.springframework:spring-test:$springVersion"
     }
 
-    version = '0.1'
+}
 
-    jar {
-        manifest.attributes provider: 'gradle'
+
+
+//        version = '0.1'
+//
+//        jar {
+//            manifest.attributes provider: 'gradle'
+//        }
+//
+//}
+
+project('alchemy-model') {
+    descripton = "Alchemy Model"
+}
+
+project('alchemy-webapp') {
+    apply plugin: 'war'
+    apply plugin: 'jetty'
+    descripton = "Alchemy Web Application"
+    dependencies {
+        compile project(':alchemy-model')
+        compile "org.springframework:spring-webmvc:$springVersion"
     }
+}
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.6'
 }

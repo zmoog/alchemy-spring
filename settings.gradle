@@ -1,1 +1,4 @@
-include 'alchemy-model', 'alchemy-webapp'
+rootProject.name = 'alchemy'
+
+include 'alchemy-model'
+include 'alchemy-webapp'
