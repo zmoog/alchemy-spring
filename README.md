@@ -17,7 +17,7 @@ Or
 
 Build from source, do the following:
 
-	   cd spring-alchemy
+	   cd alchemy-spring
  
 (on *nix)
 
