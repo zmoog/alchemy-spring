@@ -1,3 +1,4 @@
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,6 +20,29 @@
               <li><a href="#">Transfer</a></li>
               <li>{{#linkTo 'about'}}About{{/linkTo}}</li>
             </ul>
+            <ul class="nav pull-right">
+              <li>
+                <a href="#">
+                  <security:authorize access="isAuthenticated()">
+                    <security:authentication property="principal.username" />
+                  </security:authorize> 
+                  <security:authorize access="isAnonymous()">
+                    anonymous
+                  </security:authorize> 
+                </a>
+              </li>
+              <li class="divider-vertical"></li>
+              <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="secure/">Test s secure page</a></li>
+                  <security:authorize access="isAuthenticated()">
+                  <li class="divider"></li>
+                  <li><a href="j_spring_security_logout"><i class="icon-off"></i> Logout</a></li>
+                  </security:authorize> 
+                </ul>
+              </li>
+            </ul>          
           </div>
         </div>
 

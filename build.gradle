@@ -23,8 +23,8 @@ subprojects { subproject ->
 
     ext {
 
-        junitVersion = '4.11'
-        log4jVersion = '1.2.12'
+        junitVersion = '4.+'
+        log4jVersion = '1.2.+'
 
         springVersion = '3.2.2.RELEASE'
         springSecurityVersion = '3.1.4.RELEASE'
@@ -57,6 +57,7 @@ project('alchemy-webapp') {
         compile "org.springframework:spring-webmvc:$springVersion"
         compile "org.springframework.security:spring-security-config:$springSecurityVersion"
         compile "org.springframework.security:spring-security-web:$springSecurityVersion"
+        compile "org.springframework.security:spring-security-taglibs:$springSecurityVersion"
     }
 }
 
