@@ -1,4 +1,4 @@
-# spring-alchemy
+# alchemy-spring
 
 ## Checking out 
 

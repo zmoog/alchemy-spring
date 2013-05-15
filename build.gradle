@@ -27,7 +27,7 @@ subprojects { subproject ->
         log4jVersion = '1.2.12'
 
         springVersion = '3.2.2.RELEASE'
-        //springSecurityVersion = '3.1.4.RELEASE'
+        springSecurityVersion = '3.1.4.RELEASE'
     }
 
     // dependencies that are common across all java projects
@@ -37,17 +37,12 @@ subprojects { subproject ->
         testCompile "org.springframework:spring-test:$springVersion"
     }
 
+    jar {
+        manifest.attributes provider: 'gradle'
+    }
+
 }
 
-
-
-//        version = '0.1'
-//
-//        jar {
-//            manifest.attributes provider: 'gradle'
-//        }
-//
-//}
 
 project('alchemy-model') {
     descripton = "Alchemy Model"
@@ -60,6 +55,8 @@ project('alchemy-webapp') {
     dependencies {
         compile project(':alchemy-model')
         compile "org.springframework:spring-webmvc:$springVersion"
+        compile "org.springframework.security:spring-security-config:$springSecurityVersion"
+        compile "org.springframework.security:spring-security-web:$springSecurityVersion"
     }
 }
 
