@@ -28,25 +28,34 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-
 	<!-- Servlet -->
 	
-<!-- 	<servlet>
-		<servlet-name>spring</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	<servlet>
+		<servlet-name>api</servlet-name>
+		<servlet-class>
+			org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+<!-- 		<init-param>
+			<param-name>contextClass</param-name>
+			<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+		</init-param>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/alche-servlet.xml</param-value>
-		</init-param>
+			<param-value>com.codetutr.springconfig</param-value>
+		</init-param> -->
+ 		<init-param>
+ 			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/api-servlet.xml</param-value>
+		</init-param>		
 	</servlet>
- -->	
+	
 	<!-- Servlet Mapping -->
 
-<!-- 	<servlet-mapping>
-		<servlet-name>spring</servlet-name>
-		<url-pattern>/router/*</url-pattern>
+	<servlet-mapping>
+		<servlet-name>api</servlet-name>
+		<url-pattern>/api/*</url-pattern>
 	</servlet-mapping>
- -->
+
 
 	<!-- Filters -->
 	
