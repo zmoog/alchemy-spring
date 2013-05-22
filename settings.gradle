@@ -1,4 +1,5 @@
 rootProject.name = 'alchemy'
 
 include 'alchemy-model'
+include 'alchemy-services'
 include 'alchemy-webapp'
