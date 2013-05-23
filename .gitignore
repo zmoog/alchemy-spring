@@ -1,7 +1,8 @@
 .gradle
 .idea
 *.iml
-*/.classpath
-*/.project
-*/.settings
-*/.DS_Store
+build
+*.classpath
+*.project
+*.settings
+*.DS_Store

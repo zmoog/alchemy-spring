@@ -27,14 +27,18 @@ subprojects { subproject ->
         junitVersion = '4.+'
         log4jVersion = '1.2.+'
 
-        springVersion = '3.2.2.RELEASE'
+        springVersion = '3.2.3.RELEASE'
         springSecurityVersion = '3.1.4.RELEASE'
     }
 
     // dependencies that are common across all java projects
     dependencies {
+        compile "log4j:log4j:$log4jVersion"
+
+        compile "org.springframework:spring-core:$springVersion"
+        compile "org.springframework:spring-context:$springVersion"
+
         testCompile "junit:junit:$junitVersion"
-        testCompile "log4j:log4j:$log4jVersion"
         testCompile "org.springframework:spring-test:$springVersion"
     }
 
@@ -49,19 +53,25 @@ project('alchemy-model') {
     descripton = "Alchemy Model"
 }
 
+project('alchemy-services') {
+    descripton = "Alchemy Services"
+    dependencies {
+        compile project(':alchemy-model')
+    }
+}
+
 project('alchemy-webapp') {
     apply plugin: 'war'
     apply plugin: 'jetty'
     descripton = "Alchemy Web Application"
     dependencies {
         compile project(':alchemy-model')
+        compile project(':alchemy-services')
         compile "org.springframework:spring-webmvc:$springVersion"
         compile "org.springframework.security:spring-security-config:$springSecurityVersion"
-        compile "org.springframework.security:spring-security-web:$springSecurityVersion"
         compile "org.springframework.security:spring-security-taglibs:$springSecurityVersion"
-
+        compile "org.springframework.security:spring-security-web:$springSecurityVersion"
         compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.12'
-
     }
 }
 
