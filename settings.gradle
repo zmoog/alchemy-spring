@@ -1,6 +1,6 @@
 rootProject.name = 'alchemy'
 
 include 'alchemy-model'
-include 'alchemy-services'
+include 'alchemy-service'
 include 'alchemy-webapp'
 include 'alchemy-persistence'

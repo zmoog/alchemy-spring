@@ -53,8 +53,8 @@ project('alchemy-model') {
     descripton = "Alchemy Model"
 }
 
-project('alchemy-services') {
-    descripton = "Alchemy Services"
+project('alchemy-service') {
+    descripton = "Alchemy Service"
     dependencies {
         compile project(':alchemy-model')
     }
@@ -66,7 +66,7 @@ project('alchemy-webapp') {
     descripton = "Alchemy Web Application"
     dependencies {
         compile project(':alchemy-model')
-        compile project(':alchemy-services')
+        compile project(':alchemy-service')
         compile "org.springframework:spring-webmvc:$springVersion"
         compile "org.springframework.security:spring-security-config:$springSecurityVersion"
         compile "org.springframework.security:spring-security-taglibs:$springSecurityVersion"
