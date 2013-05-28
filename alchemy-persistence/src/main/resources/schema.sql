@@ -1,0 +1,1 @@
+create table account (id varchar(100), name varchar(100));

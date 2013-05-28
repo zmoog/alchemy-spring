@@ -9,7 +9,7 @@ import org.zmoog.alchemy.model.Account;
  * Time: 1.14
  * To change this template use File | Settings | File Templates.
  */
-public interface AccountDAO {
+public interface AccountDao {
     
     Account findById(String id);
 }

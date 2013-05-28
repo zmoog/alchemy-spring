@@ -57,10 +57,11 @@ project('alchemy-service') {
     descripton = "Alchemy Service"
     dependencies {
         compile project(':alchemy-model')
+        compile project(':alchemy-persistence')
     }
 }
 
-project('alchemy-webapp') {
+project('alchemy-web') {
     apply plugin: 'war'
     apply plugin: 'jetty'
     descripton = "Alchemy Web Application"
@@ -81,7 +82,6 @@ project('alchemy-persistence') {
     dependencies {
         compile project(':alchemy-model')
         compile "org.springframework:spring-aop:$springVersion"
-        compile "org.springframework:spring-context:$springVersion"
         compile "org.springframework:spring-jdbc:$springVersion"
         compile "hsqldb:hsqldb:1.8.0.10"
     }
