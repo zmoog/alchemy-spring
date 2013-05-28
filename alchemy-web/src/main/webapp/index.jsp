@@ -94,8 +94,8 @@
 
 
       <script src="js/libs/jquery-1.9.1.js"></script>
-      <script src="js/libs/handlebars-1.0.0-rc.3.js"></script>
-      <script src="js/libs/ember-1.0.0-rc.3.js"></script>
+      <script src="js/libs/handlebars-1.0.0-rc.4.js"></script>
+      <script src="js/libs/ember-1.0.0-rc.4.js"></script>
       <script src="js/libs/ember-data-latest.min.js"></script>
       <script src="js/libs/bootstrap.min.js"></script>
       <script src="js/libs/moment.min.js"></script>
