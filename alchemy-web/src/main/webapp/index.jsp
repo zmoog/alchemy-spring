@@ -88,7 +88,18 @@
 
       <script type="text/x-handlebars" id="about">
         <div class="about">
-          <p>Bla bla</p>
+
+          <div class="well">
+
+            <h3>Built with</h3>
+
+            <ul>
+              <li>Bootstrap</li>
+              <li>Ember.js</li>
+            </ul>
+
+          </div>
+
         </div>
       </script>
 
