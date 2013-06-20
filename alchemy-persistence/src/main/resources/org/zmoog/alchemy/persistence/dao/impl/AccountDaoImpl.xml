@@ -17,7 +17,7 @@
                 From
                     account a
                 Where
-                    id = :id
+                    id = UUID(:id)
             </value>
         </constructor-arg>
     </bean>
