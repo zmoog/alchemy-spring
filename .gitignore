@@ -7,3 +7,11 @@ bin
 *.project
 *.settings
 *.DS_Store
+
+*.class
+
+alchemy-web/bin/org/zmoog/alchemy/web/api/controller/AccountController.class
+
+*.class
+
+*.class
