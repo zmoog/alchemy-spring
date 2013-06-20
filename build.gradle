@@ -24,8 +24,10 @@ subprojects { subproject ->
 
     ext {
 
-        junitVersion = '4.+'
-        log4jVersion = '1.2.+'
+        junitVersion = '4.11'
+        log4jVersion = '1.2.12'
+
+        hsqldbVersion = "2.2.9"
 
         springVersion = '3.2.3.RELEASE'
         springSecurityVersion = '3.1.4.RELEASE'
@@ -83,7 +85,7 @@ project('alchemy-persistence') {
         compile project(':alchemy-model')
         compile "org.springframework:spring-aop:$springVersion"
         compile "org.springframework:spring-jdbc:$springVersion"
-        compile "hsqldb:hsqldb:1.8.0.10"
+        compile "org.hsqldb:hsqldb:$hsqldbVersion"
     }
 }
 

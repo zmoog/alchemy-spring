@@ -1,5 +1,7 @@
 package org.zmoog.alchemy.persistence;
 
+import java.util.List;
+
 import org.zmoog.alchemy.model.Account;
 
 /**
@@ -12,4 +14,6 @@ import org.zmoog.alchemy.model.Account;
 public interface AccountDao {
     
     Account findById(String id);
+
+	List<Account> find();
 }

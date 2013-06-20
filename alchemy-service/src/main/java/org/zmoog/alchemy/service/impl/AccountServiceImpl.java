@@ -1,5 +1,7 @@
 package org.zmoog.alchemy.service.impl;
 
+import java.util.List;
+
 import org.springframework.context.support.ApplicationObjectSupport;
 import org.zmoog.alchemy.model.Account;
 import org.zmoog.alchemy.persistence.AccountDao;
@@ -20,6 +22,10 @@ public class AccountServiceImpl extends ApplicationObjectSupport implements Acco
 		return accountDao.findById(id);
 	}
 
+	public List<Account> find() {
+		return accountDao.find();
+	}
+	
     public void setAccountDao(AccountDao accountDao) {
         this.accountDao = accountDao;
     }

@@ -8,6 +8,7 @@ import org.zmoog.alchemy.persistence.AccountDao;
 import org.zmoog.alchemy.persistence.support.ColumnToBeanPropertyRowMapper;
 import org.zmoog.alchemy.persistence.support.LocalGenericBeanFactory;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -34,5 +35,10 @@ public class AccountDaoImpl extends NamedParameterJdbcDaoSupport implements Acco
     public Account findById(String id) {
         return getNamedParameterJdbcTemplate().queryForObject(
                 sql.get("findById"), new MapSqlParameterSource("id", id), mapper);
+    }
+    
+    @Override
+    public List<Account> find() {
+    	return getNamedParameterJdbcTemplate().query(sql.get("find"), new MapSqlParameterSource(), mapper);
     }
 }

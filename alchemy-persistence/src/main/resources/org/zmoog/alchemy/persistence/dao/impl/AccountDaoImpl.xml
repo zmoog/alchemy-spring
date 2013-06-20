@@ -11,11 +11,33 @@
             <value>
                 Select
                     id as id,
-                    name as name
+                    name as name,
+                    account_type as accountType,
+                    balance as balance
                 From
                     account a
                 Where
                     id = :id
+            </value>
+        </constructor-arg>
+    </bean>
+
+    <bean id="find" class="java.lang.String">
+        <constructor-arg>
+            <value>
+                Select
+                    UUID(id) as id,
+                    name as name,
+                    description as description,
+                    account_type as accountType,
+                    balance as balance,
+                    active as active,
+                    created_by as createdBy,
+                    created_at as createdAt,
+                    updated_by as updatedBy,
+                    updated_by as updatedAt
+                From
+                    account a
             </value>
         </constructor-arg>
     </bean>
