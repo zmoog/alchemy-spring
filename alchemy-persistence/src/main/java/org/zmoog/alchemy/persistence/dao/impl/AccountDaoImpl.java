@@ -1,8 +1,11 @@
 package org.zmoog.alchemy.persistence.dao.impl;
 
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.zmoog.alchemy.model.Account;
 import org.zmoog.alchemy.persistence.AccountDao;
 import org.zmoog.alchemy.persistence.support.ColumnToBeanPropertyRowMapper;
@@ -10,6 +13,7 @@ import org.zmoog.alchemy.persistence.support.LocalGenericBeanFactory;
 
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 
 /**
@@ -40,5 +44,20 @@ public class AccountDaoImpl extends NamedParameterJdbcDaoSupport implements Acco
     @Override
     public List<Account> find() {
     	return getNamedParameterJdbcTemplate().query(sql.get("find"), new MapSqlParameterSource(), mapper);
+    }
+    
+    @Override
+    public void update(Account account) {
+    	getNamedParameterJdbcTemplate().update(sql.get("update"), new BeanPropertySqlParameterSource(account));
+    }
+    
+    @Override
+    public void create(Account account) {
+
+    	KeyHolder keyHolder = new GeneratedKeyHolder();
+    	
+    	getNamedParameterJdbcTemplate().update(sql.get("create"), new BeanPropertySqlParameterSource(account), keyHolder);
+    	
+    	logger.debug(keyHolder.getKeys());
     }
 }

@@ -25,7 +25,7 @@ public class Account {
 
     private BigDecimal balance;
 
-    private Boolean active;
+    private Date retiredAt;
 
     // audit
 
@@ -49,6 +49,10 @@ public class Account {
 	public Account(String name) {
 		this.name = name;
 	}
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// Accessors
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	public String getId() {
 		return id;
@@ -122,16 +126,16 @@ public class Account {
 		this.updatedAt = updatedAt;
 	}
 
-	public Boolean isActive() {
-		return active;
+	public Date getRetiredAt() {
+		return retiredAt;
 	}
 
-	public void setActive(Boolean active) {
-		this.active = active;
+	public void setRetiredAt(Date retiredAt) {
+		this.retiredAt = retiredAt;
 	}
 	
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // Accessors
+    // Support
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
 	@Override

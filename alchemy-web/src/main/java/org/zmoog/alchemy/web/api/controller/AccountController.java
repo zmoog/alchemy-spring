@@ -43,12 +43,14 @@ public class AccountController extends ApplicationObjectSupport {
 	@ResponseBody
 	public void update(@PathVariable("id") String id, @RequestBody Account account) {
 		logger.info(String.format("Updating account %s", account));
+		accountService.update(account);
 	}
 
 	@RequestMapping(value="/", method=RequestMethod.POST)
 	@ResponseBody
 	public void create(@RequestBody Account account) {
 		logger.info(String.format("Creating account %s", account));
+		accountService.create(account);
 	}
 
 }

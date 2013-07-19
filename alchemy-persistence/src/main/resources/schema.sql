@@ -9,10 +9,12 @@ create table account (
 	description varchar(100) NOT NULL,
 	account_type varchar(32) NOT NULL,
 	balance float NOT NULL,
-	active BOOLEAN NOT NULL,
+	retired_at TIMESTAMP,
 	
 	created_by varchar(100) NOT NULL,
 	created_at TIMESTAMP NOT NULL,
 	updated_by varchar(100),
 	updated_at TIMESTAMP
 );
+
+CREATE TRIGGER TRIG BEFORE INSERT ON account REFERENCING NEW ROW AS NEW FOR EACH ROW SET NEW.ID = UUID();

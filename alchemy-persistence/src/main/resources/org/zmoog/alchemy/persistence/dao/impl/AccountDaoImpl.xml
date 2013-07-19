@@ -10,10 +10,16 @@
         <constructor-arg>
             <value>
                 Select
-                    id as id,
+                    UUID(id) as id,
                     name as name,
+                    description as description,
                     account_type as accountType,
-                    balance as balance
+                    balance as balance,
+                    retired_at as retiredAt,
+                    created_by as createdBy,
+                    created_at as createdAt,
+                    updated_by as updatedBy,
+                    updated_at as updatedAt
                 From
                     account a
                 Where
@@ -31,15 +37,93 @@
                     description as description,
                     account_type as accountType,
                     balance as balance,
-                    active as active,
+                    retired_at as retiredAt,
                     created_by as createdBy,
                     created_at as createdAt,
                     updated_by as updatedBy,
-                    updated_by as updatedAt
+                    updated_at as updatedAt
                 From
                     account a
             </value>
         </constructor-arg>
     </bean>
 
+    <bean id="update" class="java.lang.String">
+        <constructor-arg>
+            <value>
+                Update
+                	account
+                Set
+                    name = :name,
+                    description = :description,
+                    account_type = :accountType,
+                    balance = :balance,
+                    retired_at = :retiredAt,
+                    updated_by = :updatedBy,
+                    updated_at = :updatedAt
+				Where
+					id = UUID(:id)
+
+            </value>
+        </constructor-arg>
+    </bean>
+
+    <bean id="create" class="java.lang.String">
+        <constructor-arg>
+            <value>
+
+                Insert Into
+                	account
+                (
+                	name,
+                	description,
+                	account_type,
+                	balance,
+                	created_at,
+                	created_by
+                )
+                Values
+                (
+                    :name,
+                    :description,
+                    :accountType,
+                    0,
+                    now(),
+                    :createdBy
+                )
+
+            </value>
+        </constructor-arg>
+    </bean>
+
+    <bean id="readNewObjectId" class="java.lang.String">
+        <constructor-arg>
+            <value>
+
+                Insert Into
+                	account
+                (
+                	id,
+                	name,
+                	description,
+                	account_type,
+                	balance,
+                	created_at,
+                	created_by
+                )
+                Values
+                (
+                	UUID(),
+                    :name,
+                    :description,
+                    :accountType,
+                    0,
+                    now(),
+                    :createdBy
+                )
+
+            </value>
+        </constructor-arg>
+    </bean>
+                
 </beans>

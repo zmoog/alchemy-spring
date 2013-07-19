@@ -10,4 +10,8 @@ public interface AccountService {
 	Account find(String id);
 	
 	List<Account> find();
+	
+	void update(Account account);
+
+	void create(Account account);
 }

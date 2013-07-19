@@ -16,4 +16,8 @@ public interface AccountDao {
     Account findById(String id);
 
 	List<Account> find();
+	
+	void update(Account account);
+
+	void create(Account account);
 }

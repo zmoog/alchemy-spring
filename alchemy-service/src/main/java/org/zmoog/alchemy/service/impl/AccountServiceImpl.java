@@ -26,6 +26,16 @@ public class AccountServiceImpl extends ApplicationObjectSupport implements Acco
 		return accountDao.find();
 	}
 	
+	@Override
+	public void update(Account account) {
+		accountDao.update(account);
+	}
+	
+	@Override
+	public void create(Account account) {
+		accountDao.create(account);
+	}
+	
     public void setAccountDao(AccountDao accountDao) {
         this.accountDao = accountDao;
     }
