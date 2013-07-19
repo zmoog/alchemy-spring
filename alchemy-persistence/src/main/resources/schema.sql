@@ -4,7 +4,7 @@
 --
 
 create table account (
-	ID BINARY(16) DEFAULT X'' PRIMARY KEY, 
+	ID BINARY(16) DEFAULT X'' IDENTITY PRIMARY KEY, 
 	name varchar(100) NOT NULL, 
 	description varchar(100) NOT NULL,
 	account_type varchar(32) NOT NULL,

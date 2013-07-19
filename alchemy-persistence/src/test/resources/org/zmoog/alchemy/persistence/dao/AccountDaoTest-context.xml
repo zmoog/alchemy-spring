@@ -4,10 +4,10 @@
                         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <import resource="classpath:application-context.xml" />
+    <import resource="classpath:application-test-context.xml" />
 
     <bean id="accountDao" class="org.zmoog.alchemy.persistence.dao.impl.AccountDaoImpl">
-        <property name="dataSource" ref="dataSource"></property>
+        <property name="dataSource" ref="dataSource" />
     </bean>
 
 </beans>

@@ -72,22 +72,23 @@
         <constructor-arg>
             <value>
 
-                Insert Into
-                	account
+                Insert Into account
                 (
-                	name,
-                	description,
-                	account_type,
-                	balance,
-                	created_at,
-                	created_by
+                    id,
+                    name,
+                    description,
+                    account_type,
+                    balance,
+                    created_at,
+                    created_by
                 )
                 Values
                 (
+                    UUID(:id),
                     :name,
                     :description,
                     :accountType,
-                    0,
+                    :balance,
                     now(),
                     :createdBy
                 )
@@ -96,34 +97,4 @@
         </constructor-arg>
     </bean>
 
-    <bean id="readNewObjectId" class="java.lang.String">
-        <constructor-arg>
-            <value>
-
-                Insert Into
-                	account
-                (
-                	id,
-                	name,
-                	description,
-                	account_type,
-                	balance,
-                	created_at,
-                	created_by
-                )
-                Values
-                (
-                	UUID(),
-                    :name,
-                    :description,
-                    :accountType,
-                    0,
-                    now(),
-                    :createdBy
-                )
-
-            </value>
-        </constructor-arg>
-    </bean>
-                
 </beans>

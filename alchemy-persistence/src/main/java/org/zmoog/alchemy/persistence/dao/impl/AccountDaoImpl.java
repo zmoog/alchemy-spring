@@ -54,10 +54,10 @@ public class AccountDaoImpl extends NamedParameterJdbcDaoSupport implements Acco
     @Override
     public void create(Account account) {
 
-    	KeyHolder keyHolder = new GeneratedKeyHolder();
+    	account.setId(UUID.randomUUID().toString());
     	
-    	getNamedParameterJdbcTemplate().update(sql.get("create"), new BeanPropertySqlParameterSource(account), keyHolder);
+    	getNamedParameterJdbcTemplate().update(sql.get("create"), new BeanPropertySqlParameterSource(account));
     	
-    	logger.debug(keyHolder.getKeys());
+    	logger.debug(String.format("Created new account with UUID: %s", account.getId()));
     }
 }
